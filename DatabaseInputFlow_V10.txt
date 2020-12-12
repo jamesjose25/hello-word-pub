@@ -1,0 +1,17 @@
+
+ODBC :
+
+Define a DataSource for ODBC connectivity.
+Set credentials for the DB connection.
+   mqsisetdbparms BKR10 -n SAMPLEDS -u user -p password
+
+JDBC :
+
+Create JDBC configurable service
+
+mqsicreateconfigurableservice BKR10 -c JDBCProviders -o DB2_JDBC -n connectionUrlFormat,databaseName,databaseType,databaseVersion,jarsURL,portNumber,securityIdentity,serverName,type4DatasourceClassName,type4DriverClassName -v jdbc:db2://[serverName]:[portNumber]/[databaseName]:user=[user];password=[password];,SAMPLE,"DB2 Universal Database",9.1,"C:\Program Files\IBM\SQLLIB\java",50000,myJDBCIdentity,localhost,com.ibm.db2.jcc.DB2XADataSource,com.ibm.db2.jcc.DB2Driver
+
+
+Set credentials for the JDBC Connection. 
+mqsisetdbparms BKR10_2 -n jdbc::myJDBCIdentity -u db2testuser -p Db2testuser-1234567
+
